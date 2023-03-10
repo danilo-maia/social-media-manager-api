@@ -1,5 +1,6 @@
 package com.danilomaia.workshopspringbootmongodb.resources;
 
+import com.danilomaia.workshopspringbootmongodb.entities.Post;
 import com.danilomaia.workshopspringbootmongodb.entities.User;
 import com.danilomaia.workshopspringbootmongodb.entities.dto.UserDTO;
 import com.danilomaia.workshopspringbootmongodb.services.UserService;
@@ -50,5 +51,11 @@ public class UserResource {
         User obj = UserDTO.toUser(objDTO);
         obj.setId(id);
         return ResponseEntity.ok().body(service.update(obj));
+    }
+
+    @GetMapping(value = "/{id}/posts")
+    public ResponseEntity<List<Post>> findPosts(@PathVariable String id){
+        User user = service.findById(id);
+        return ResponseEntity.ok().body(user.getPosts());
     }
 }
