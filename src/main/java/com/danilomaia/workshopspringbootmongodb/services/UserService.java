@@ -33,4 +33,9 @@ public class UserService {
     public void insert(User obj){
         repository.insert(obj);
     }
+
+    public void deleteById(String id){
+        this.findById(id);
+        repository.deleteById(id);
+    }
 }
