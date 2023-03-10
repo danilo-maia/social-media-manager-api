@@ -1,12 +1,15 @@
 package com.danilomaia.workshopspringbootmongodb.entities;
 
 import com.danilomaia.workshopspringbootmongodb.entities.dto.AuthorDTO;
+import com.danilomaia.workshopspringbootmongodb.entities.dto.CommentDTO;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serial;
 import java.io.Serializable;
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Document
@@ -19,6 +22,8 @@ public class Post implements Serializable {
     private String title;
     private String body;
     private AuthorDTO author;
+
+    private List<CommentDTO> comments = new ArrayList<>();
 
     public Post(String id, Instant date, String title, String body, AuthorDTO author) {
         this.id = id;
@@ -66,6 +71,14 @@ public class Post implements Serializable {
 
     public void setAuthor(AuthorDTO author) {
         this.author = author;
+    }
+
+    public List<CommentDTO> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<CommentDTO> comments) {
+        this.comments = comments;
     }
 
     @Override
