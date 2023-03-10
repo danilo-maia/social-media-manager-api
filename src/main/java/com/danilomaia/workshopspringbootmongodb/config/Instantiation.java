@@ -2,6 +2,7 @@ package com.danilomaia.workshopspringbootmongodb.config;
 
 import com.danilomaia.workshopspringbootmongodb.entities.Post;
 import com.danilomaia.workshopspringbootmongodb.entities.User;
+import com.danilomaia.workshopspringbootmongodb.entities.dto.AuthorDTO;
 import com.danilomaia.workshopspringbootmongodb.repositories.PostRepository;
 import com.danilomaia.workshopspringbootmongodb.repositories.UserRepository;
 import org.springframework.boot.CommandLineRunner;
@@ -28,11 +29,11 @@ public class Instantiation implements CommandLineRunner {
         User alex = new User(null, "Alex Green", "alex@gmail.com");
         User bob = new User(null, "Bob Grey", "bob@gmail.com");
 
-        Post post1 = new Post(null, LocalDate.of(2015, 3, 21).atStartOfDay().toInstant(ZoneOffset.UTC), "Partiu viagem", "Vou viajar para São Paulo. Abraços!", maria);
-        Post post2 = new Post(null, LocalDate.of(2015, 3, 23).atStartOfDay().toInstant(ZoneOffset.UTC), "Bom dia", "Acordei feliz hoje!", maria);
-
-
         userRepository.insert(Arrays.asList(maria, alex, bob));
+
+        Post post1 = new Post(null, LocalDate.of(2015, 3, 21).atStartOfDay().toInstant(ZoneOffset.UTC), "Partiu viagem", "Vou viajar para São Paulo. Abraços!", new AuthorDTO(maria));
+        Post post2 = new Post(null, LocalDate.of(2015, 3, 23).atStartOfDay().toInstant(ZoneOffset.UTC), "Bom dia", "Acordei feliz hoje!", new AuthorDTO(maria));
+
         postRepository.insert(Arrays.asList(post1, post2));
     }
 }
