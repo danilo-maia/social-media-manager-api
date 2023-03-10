@@ -1,6 +1,6 @@
 package com.danilomaia.workshopspringbootmongodb.resources;
 
-import com.danilomaia.workshopspringbootmongodb.entities.User;
+import com.danilomaia.workshopspringbootmongodb.entities.dto.UserDTO;
 import com.danilomaia.workshopspringbootmongodb.services.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +20,8 @@ public class UserResource {
     }
 
     @GetMapping
-    public ResponseEntity<List<User>> findAll(){
-        return ResponseEntity.ok().body(service.findAll());
+    public ResponseEntity<List<UserDTO>> findAll(){
+        List<UserDTO> list = service.findAll().stream().map(UserDTO::new).toList();
+        return ResponseEntity.ok().body(list);
     }
 }
