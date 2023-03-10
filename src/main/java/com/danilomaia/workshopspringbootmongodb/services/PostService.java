@@ -5,6 +5,7 @@ import com.danilomaia.workshopspringbootmongodb.repositories.PostRepository;
 import com.danilomaia.workshopspringbootmongodb.services.exceptions.ObjectNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -23,5 +24,9 @@ public class PostService {
             throw new ObjectNotFoundException("Object not found. Id " + id);
 
         return Post.get();
+    }
+
+    public List<Post> findByTitle(String text){
+        return repository.findByTitleContainingIgnoreCase(text);
     }
 }
