@@ -1,11 +1,11 @@
-# Gerenciamento de rede social
+# Social Network Manager API
 
 
-# Sobre o projeto
+# About the Project:
 
-O gerenciamento de rede social é um projeto de backend que compõe uma API Restful responsável pelo CRUD de usuários em uma rede social. Cada usuário possui posts e cada post possui comentários.
+The Social Network Management is a backend project that comprises a Restful API responsible for the CRUD of users in a social network. Each user has posts and each post has comments.
 
-# Tecnologias utilizadas
+# Technologies Used:
 
 - Java
 - Spring Boot
@@ -13,10 +13,10 @@ O gerenciamento de rede social é um projeto de backend que compõe uma API Rest
 - Spring Data MongoDB
 - Maven
 
-# Modelo conceitual
+# Conceptual Model:
 
-![Diagrama UML](https://github.com/danilo-maia/Assets/blob/main/Diagrama%20UML.png)
+![UML Diagram](https://github.com/danilo-maia/Assets/blob/main/Diagrama%20UML.png)
 
-## Exemplo de como um usuário é armazenado no banco de dados
+## Example of how a user is stored in the database:
 
-![Usuário](https://github.com/danilo-maia/Assets/blob/main/Usu%C3%A1rio.png)
+![User](https://github.com/danilo-maia/Assets/blob/main/Usu%C3%A1rio.png)
